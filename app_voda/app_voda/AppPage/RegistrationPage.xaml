@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="app_voda.AppPage.RegistrationPage"
+             xmlns:local="clr-namespace:app_voda"
+             xmlns:Behaviors="clr-namespace:app_voda.Behaviours">
+    <ContentPage.Content>
+        <StackLayout Padding="0" >
+
+            <Grid>
+                <StackLayout Padding="0" Margin="0">
+                    <Frame BackgroundColor="AliceBlue" HeightRequest="700" HorizontalOptions="FillAndExpand" Padding="0">
+                        <Image Source="voda" Aspect="AspectFill"/>
+                    </Frame>
+                </StackLayout>
+                <StackLayout>
+                    <Image Source="logo" Aspect="AspectFit" HeightRequest="110" Margin="0,5,0,0"/>
+                    <Label Text="Приморский водоканал: отслеживание аварийных ситуаций" HorizontalOptions="CenterAndExpand" TextColor="White"
+                           FontSize="Large" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <StackLayout Margin="5,190,5,0">
+                    <Frame BackgroundColor="Azure" CornerRadius="15"  HasShadow="True" HeightRequest="350" HorizontalOptions="FillAndExpand">
+                        <ScrollView>
+                            <StackLayout HorizontalOptions="CenterAndExpand">
+                                <Label Text="РЕГИСТРАЦИЯ" HorizontalTextAlignment="Center" TextColor="DarkBlue" FontSize="Medium" FontAttributes="Bold"/>
+                                <Grid VerticalOptions="CenterAndExpand" Margin="0" RowSpacing="5">
+                                    <StackLayout Margin="0,-20,0,0">
+                                        <Frame BackgroundColor="Transparent" BorderColor="DarkBlue" Padding="0" Margin="0" CornerRadius="50" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Horizontal">
+                                              <Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="15" WidthRequest="25" Padding="0" Margin="7">
+                                                  <Image Source="https://st2.depositphotos.com/5266903/7830/i/950/depositphotos_78309970-stock-photo-user-flat-white-color-icon.jpg" Aspect="AspectFill" />
+                                               </Frame>
+                                                <Entry Keyboard="Text" HorizontalOptions="FillAndExpand" Text="{Binding UserName} " MaxLength="10" Placeholder="Имя" FontSize="16" x:Name="EntryUserName"/>
+                                            </StackLayout>
+                                        </Frame>
+
+                                        <Frame BackgroundColor="Transparent" BorderColor="DarkBlue" Padding="0" CornerRadius="50" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="15" WidthRequest="25" Padding="0" Margin="7">
+                                                    <Image Source="https://cdn1.iconfinder.com/data/icons/round-ui/173/50-512.png" Aspect="AspectFill" />
+                                                </Frame>
+                                                <Entry Placeholder="Пароль" HorizontalOptions="FillAndExpand" IsPassword="true" FontSize="16" x:Name="EntryUserPassword"/>
+                                            </StackLayout>
+                                        </Frame>
+
+                                        <Frame BackgroundColor="Transparent" BorderColor="DarkBlue" Padding="0" Margin="0" CornerRadius="50" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="15" WidthRequest="25" Padding="0" Margin="7">
+                                                    <Image Source="https://www.seekpng.com/png/full/881-8813282_facebook-instagram-contact-form-intercom-chat-icon-svg.png" Aspect="AspectFill" />
+                                                </Frame>
+                                                <Entry Keyboard="Email" HorizontalOptions="FillAndExpand" MaxLength="25" Placeholder="Email" FontSize="16" x:Name="EntryUserEmail"/>
+                                                <Label x:Name="ErrorLabel" IsVisible="false"/>
+                                            </StackLayout>
+                                        </Frame>
+
+                                        <Frame BackgroundColor="Transparent" BorderColor="DarkBlue" Padding="0" Margin="0" CornerRadius="50" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="15" WidthRequest="25" Padding="0" Margin="7">
+                                                    <Image Source="https://cdn1.iconfinder.com/data/icons/basic-ui-elements-color-round/3/46-512.png" Aspect="AspectFill" />
+                                                </Frame>
+                                                <Entry Keyboard="Text" Placeholder="Улица" Text="{Binding UserStreet}" HorizontalOptions="FillAndExpand" FontSize="16" x:Name="EntryUserStreet"/>
+                                            </StackLayout>
+                                        </Frame>
+
+                                        <Frame BackgroundColor="Transparent" BorderColor="DarkBlue" Padding="0" Margin="0" CornerRadius="50" HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="15" WidthRequest="25" Padding="0" Margin="7">
+                                                    <Image Source="https://yt3.ggpht.com/a/AATXAJyL6lN6xEEV4ijayqlIGm_UHT9khvQsCfgG1_3s=s900-c-k-c0xffffffff-no-rj-mo"  Aspect="AspectFill" />
+                                                </Frame>
+                                                <Entry  Keyboard="Numeric" MaxLength="3" HorizontalOptions="FillAndExpand" Text="{Binding House}" Placeholder="Номер дома" FontSize="16" x:Name="EntryHouseNumber"/>
+                                            </StackLayout>
+                                        </Frame>
+
+                                        <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,5,0,0">
+                                            <Button Text="Зарегистрироваться"  WidthRequest="250" CornerRadius="20" TextColor="White" BackgroundColor="Blue" FontAttributes="Bold" Clicked="Button_Clicked"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+                        </ScrollView>
+                    </Frame>
+                </StackLayout>
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

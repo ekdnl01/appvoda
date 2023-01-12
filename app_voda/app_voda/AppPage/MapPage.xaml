@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="app_voda.AppPage.MapPage" Title="Карта отключений">
+             
+    <ContentPage.Content>
+        <StackLayout>
+            <maps:Map x:Name="mapshow" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <x:Arguments>
+                    <maps:MapSpan>
+                        <x:Arguments>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>43.13315732431496</x:Double>
+                                    <x:Double>131.91267434002464</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <x:Double>0.01</x:Double>
+                            <x:Double>0.01</x:Double>
+                        </x:Arguments>
+                    </maps:MapSpan>
+                </x:Arguments>
+                <maps:Map.Pins>
+                    <maps:Pin Label="КГУП Приморский Водоканал"
+                       Address="Некрасовская ул., 122, Владивосток, Приморский край, 690088"
+                       Type="Place">
+                        <maps:Pin.Position>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>43.13315732431496</x:Double>
+                                    <x:Double>131.91267434002464</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                        </maps:Pin.Position>
+                    </maps:Pin>
+                </maps:Map.Pins>
+            </maps:Map>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             x:Class="app_voda.AppPage.Page5">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <yummy:PancakeView Grid.Row="0"
+                    CornerRadius="0,0,30,30" 
+                        Shadow="{yummy:ShadowMarkup Color=Gray, Offset='10,10'}" 
+                        HeightRequest="300" 
+                        IsClippedToBounds="True">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="300" />
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="vod.png" Aspect="AspectFill"/>
+                        <BoxView Grid.Row="0" BackgroundColor="DarkBlue" Opacity="0.2"/>
+                    </Grid>
+                </yummy:PancakeView>
+                
+                <yummy:PancakeView 
+                    Margin="0,0,0,-30" 
+                    BackgroundColor="White" 
+                    CornerRadius="30" 
+                    Shadow="{yummy:ShadowMarkup Color=Gray, Offset='10,10'}" 
+                    HeightRequest="60" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="End" 
+                    WidthRequest="250">
+                   
+                     
+                    <Button Grid.Row="0" Text="Приморский водоканал на карте" CornerRadius="8" FontFamily="RobBold" FontAttributes="Bold"
+                            HeightRequest="70" WidthRequest="250" HorizontalOptions="CenterAndExpand" 
+                            BackgroundColor="LightSkyBlue"
+                            TextColor="Black" Clicked="Button_Clicked"/>
+                    
+                </yummy:PancakeView>
+                <StackLayout Grid.Row="1" Margin="20,20,0,-20" Padding="0,29" >
+                    <Label 
+                     Margin="0,0,0,0" 
+                     FontSize="25" 
+                     TextColor="Black"
+                     FontFamily="Days"
+                     Text="Социальный сети" />
+                </StackLayout>
+
+                <BoxView Grid.Row="2" BackgroundColor="Black" HorizontalOptions="Start" Opacity="0.2" Margin="10"
+                         VerticalOptions="Start" HeightRequest="1" WidthRequest="500"/>
+                
+                <StackLayout Grid.Row="3" Orientation="Horizontal" Margin="12,0,0,-10">
+    
+                    <ImageButton Source="https://plusworld.ru/wp-content/uploads/2021/01/vk.png" WidthRequest="50" 
+                                 Clicked="open_vk" Margin="20,5"/>
+                    <ImageButton Source="https://centroculturaleacqualagna.it/wp-content/uploads/2020/04/Instagram-vector-drawing-Logo.png" 
+                                 WidthRequest="50"  Margin="20,5" Clicked="open_ig"/>
+                    <ImageButton Source="https://sites.susu.ru/fj/wp-content/uploads/sites/21/2017/02/twitter_logo1-Copy.png" 
+                                 WidthRequest="50"  Margin="20,5" Clicked="open_tw"/>
+                    <ImageButton Source="https://pp.userapi.com/c850120/v850120771/b981/dkvbgncSleY.jpg" 
+                                 WidthRequest="50"  Margin="20,5" Clicked="open_fc"/>
+                </StackLayout>
+                <BoxView Grid.Row="4" BackgroundColor="Black" HorizontalOptions="Start" Opacity="0.2" Margin="10"
+                         VerticalOptions="Start" HeightRequest="1" WidthRequest="500"/>
+
+                <StackLayout Grid.Row="4" Margin="20,5,0,-2" Padding="0,29" >
+                    <Label 
+                     Margin="0,0,0,0" 
+                     FontSize="25" 
+                     TextColor="Black"
+                     FontFamily="Days"
+                     Text="Связаться с нами" />
+                </StackLayout>
+                <BoxView Grid.Row="5" BackgroundColor="Black" HorizontalOptions="Start" Opacity="0.2" Margin="10,-10"
+                         VerticalOptions="Start" HeightRequest="1" WidthRequest="500"/>
+                <StackLayout Grid.Row="6" Orientation="Vertical" Margin="0">
+                    <Label Text="Единый телефон: 8 (423) 200-5-777" TextColor="Black" FontSize="20" Margin="20,5" FontFamily="RobReg"
+                                    HorizontalTextAlignment="Center" VerticalTextAlignment="Start" FontAttributes="Bold"/>
+                    
+                    <Button Text="Позвонить" BackgroundColor="LightBlue" TextColor="Black" CornerRadius="10" FontSize="18" 
+                                     HeightRequest="40" WidthRequest="150" 
+                                    HorizontalOptions="CenterAndExpand" Clicked="make_call" FontFamily="RobBold"/>
+                   
+                    <Label Text="Электронная почта: prim@primvoda.ru" TextColor="Black" FontSize="20" FontFamily="RobReg" 
+                                   FontAttributes='Italic' HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
+                    
+                    
+                    <Button Text="Написать" BackgroundColor="LightBlue" TextColor="Black" CornerRadius="10" FontSize="18" 
+                                     HeightRequest="40" WidthRequest="150" FontFamily="RobBold" 
+                                    HorizontalOptions="CenterAndExpand" Clicked="send_email"/>
+                    
+                </StackLayout>
+            </Grid>
+          
+
+            <!--<StackLayout BackgroundColor="AliceBlue" Padding="0">
+
+                <StackLayout>
+
+
+                    <Image Source="https://www.vippng.com/png/full/37-375440_placeholder-on-map-paper-in-perspective-bank-branch.png" HeightRequest="180" Margin="0,10,0,0"/>
+                    <Button Text="Приморский водоканал на карте" CornerRadius="8" HeightRequest="70" WidthRequest="250" HorizontalOptions="CenterAndExpand" BackgroundColor="DarkCyan"
+                            TextColor="White" Clicked="Button_Clicked"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="20">
+                <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                    <StackLayout Orientation="Horizontal" Margin="2">
+                        <Label Text="Социальные сети:" TextColor="Black" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <ImageButton Source="https://plusworld.ru/wp-content/uploads/2021/01/vk.png" WidthRequest="50" Clicked="open_vk"/>
+                            <ImageButton Source="https://centroculturaleacqualagna.it/wp-content/uploads/2020/04/Instagram-vector-drawing-Logo.png" WidthRequest="50" Clicked="open_ig"/>
+                    </StackLayout>
+                </Frame>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0">
+                    <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                        <StackLayout Orientation="Vertical" Margin="0">
+                            <Label Text="Связаться с нами:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"
+                                   HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            <Label Text="Единый телефон: 8 (423) 200-5-777" TextColor="Black" FontSize="Medium" 
+                                   FontAttributes='Italic' HorizontalTextAlignment="Start" VerticalTextAlignment="Start"/>
+                            <Button Text="Позвонить" BackgroundColor="DarkCyan" TextColor="White" CornerRadius="10" FontSize="Default" 
+                                    FontAttributes="Bold" HeightRequest="40" WidthRequest="120" 
+                                    HorizontalOptions="CenterAndExpand" Clicked="make_call"/>
+                            <Label Text="Электронная почта: prim@primvoda.ru" TextColor="Black" FontSize="Medium" 
+                                   FontAttributes='Italic' HorizontalTextAlignment="Start" VerticalTextAlignment="Start"/>
+                            <Button Text="Написать" BackgroundColor="DarkCyan" TextColor="White" CornerRadius="10" FontSize="Default" 
+                                    FontAttributes="Bold" HeightRequest="40" WidthRequest="120" 
+                                    HorizontalOptions="CenterAndExpand" Clicked="send_email"/>
+                        </StackLayout>
+                    </Frame>
+
+                </StackLayout>
+
+            </StackLayout>-->
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

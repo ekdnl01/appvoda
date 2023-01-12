@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="app_voda.AppPage.Page3" Title="Карта отключений">
+    <ContentPage.Content>
+        <StackLayout>
+            <maps:Map x:Name="map" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                      IsShowingUser="True">
+                <x:Arguments>
+                    <maps:MapSpan>
+                        <x:Arguments>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>43.13225002940428</x:Double>
+                                    <x:Double>131.9201538941566</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <x:Double>0.01</x:Double>
+                            <x:Double>0.01</x:Double>
+                        </x:Arguments>
+                    </maps:MapSpan>
+                </x:Arguments>
+            </maps:Map>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

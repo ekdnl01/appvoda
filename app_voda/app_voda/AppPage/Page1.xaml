@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:app_voda.AppPage" xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:behaviors="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="app_voda.AppPage.Page1">
+    <ScrollView>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <cv:CarouselViewControl Grid.Row="0" x:Name="cvBanners" ShowIndicators="True" IndicatorsShape="Circle" IndicatorsTintColor="LightBlue"
+                                CurrentPageIndicatorTintColor="CornflowerBlue" Orientation="Horizontal" InterPageSpacing="0"
+                                HeightRequest="270" ItemsSource="{Binding Banners}" HorizontalOptions="FillAndExpand"
+                                VerticalOptions="StartAndExpand" AnimateTransition="True">
+                <cv:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand"/>
+                            <BoxView Color="DarkBlue" Opacity="0.5" HorizontalOptions="FillAndExpand"/>
+                            <StackLayout Margin="30,20,0,0" Spacing="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                <BoxView BackgroundColor="White" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="1" WidthRequest="50"/>
+                                <StackLayout>
+                                    <Label Text="{Binding Message}" TextColor="White" FontSize="35" FontFamily="RobBold"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </cv:CarouselViewControl.ItemTemplate>
+            </cv:CarouselViewControl>
+            <pancake:PancakeView  Grid.Row="1" Shadow="{pancake:ShadowMarkup Color=Red, Offset='10,10'}" Margin="0,10,0,0"
+                                  HeightRequest="275">
+                <Frame Grid.Row="1" BackgroundColor="#E9FFF9"  CornerRadius="10" HasShadow="True"  Padding="0">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <BoxView Grid.Row="0" BackgroundColor="Black" HorizontalOptions="Start" Opacity="0.5" Margin="20,20,20,10"
+                         VerticalOptions="Start" HeightRequest="1"  WidthRequest="530"/>
+
+
+                    <Label Grid.Row="1" Margin="20,0,0,10" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+
+                                <Span
+                                        FontFamily="RobBold"
+                                        FontSize='18'
+                                        TextDecorations="Underline"
+                                        Text="Улица: "
+                                        TextColor="Black" />
+                                <Span
+                                        FontFamily="RobBold"
+                                        FontSize='18'
+                                        x:Name="LabelStreet1"
+                                        Text=""
+                                        TextColor="Black" />
+
+                            </FormattedString>
+                        </Label.FormattedText>
+
+                    </Label>
+
+                    <Label Grid.Row="2" Margin="20,0,0,10" VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+
+                                <Span
+                                        FontFamily="RobBold"
+                                        FontSize='18'
+                                       TextDecorations="Underline"
+                                        Text="Дом: "
+                                        TextColor="Black" />
+                                <Span
+                                        FontFamily="RobBold"
+                                        FontSize='18'
+                                        x:Name="LabelHouse1"
+                                        Text=""
+                                        TextColor="Black" />
+
+                            </FormattedString>
+                        </Label.FormattedText>
+
+                    </Label>
+                    <Label Grid.Row="3" 
+                   Margin="20,0,0,0" 
+                   VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span
+                                        FontFamily="RobBold"
+                                        FontSize='18'
+                                       TextDecorations="Underline"
+                                        Text="Наличие отключений: "
+                                        TextColor="Black" />
+                                <Span
+                                        FontFamily="RobBold"
+                            
+                                        FontSize='18'
+                                        x:Name="lb1"
+                                        Text=""
+                                        TextColor="Black" />
+
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Grid.Row="4" Margin="20,0,0,0" VerticalTextAlignment="Center" FontFamily="RobBold" FontSize='18' 
+                           x:Name="lb2" Text="" TextColor="Black" />
+                    <BoxView Grid.Row="5" BackgroundColor="Black" HorizontalOptions="Start" Opacity="0.5" Margin="20,0,20,0"
+                         VerticalOptions="Start" HeightRequest="1"  WidthRequest="530"/>
+                </Grid>
+            </Frame>
+            </pancake:PancakeView>
+            <CollectionView Grid.Row="2" Margin="20,15,0,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                            SelectionMode="None" ItemsSource="{Binding MEvents}">
+                <CollectionView.Header>
+                    <Label Text="Отключения в городе" TextColor="#901F1F" FontSize="25" FontFamily="Days"/>
+                </CollectionView.Header>
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="20"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HasShadow="True" BackgroundColor="Transparent" VerticalOptions="StartAndExpand" 
+                               HorizontalOptions="FillAndExpand" Padding="0">
+                            <Grid VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                                <behaviors:Expander x:Name="MainExpander" CollapseAnimationLength="500" Tapped="Expander_Tapped" >
+                                    <behaviors:Expander.Header>
+                                        <Grid HorizontalOptions="FillAndExpand" BackgroundColor="White">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="3*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <BoxView BackgroundColor="#A0A4C9" Opacity="0.2"/>
+                                            <StackLayout>
+                                                <Label Text="{Binding Date, StringFormat='{0:d}'}" TextColor="DarkBlue" FontSize="20" VerticalOptions="CenterAndExpand"
+                                                       HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                                            </StackLayout>
+                                            <StackLayout Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" Margin="20">
+                                                <Label Text="{Binding Title}" TextColor="Black" FontSize="15" FontFamily="ThemeFontBold" />
+                                                <Label Text="{Binding Duration}" Opacity="0.85" TextColor="Black" FontSize="12" Margin="0,-5,0,0"/>
+
+                                            </StackLayout>
+                                        </Grid>
+                                    </behaviors:Expander.Header>
+                                    <Grid RowSpacing="0" HorizontalOptions="FillAndExpand" HeightRequest="240">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="2*"/>
+                                            <RowDefinition Height="1.5*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid x:Name="DetailsView" Grid.Row="0" BackgroundColor="White" Padding="20" >
+                                            <StackLayout>
+                                                    <Label Text="{Binding Description}" TextColor="Black" FontSize="15" FontFamily="ThemeFontRegular" Opacity="0.85"/>
+                                            </StackLayout>
+                                        </Grid> 
+                                    </Grid>
+                                </behaviors:Expander>
+                            </Grid>
+                        </Frame>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <!--<pancake:PancakeView Grid.Row="1" HeightRequest="200" Shadow="{pancake:ShadowMarkup Color=Black, Offset='15,15'}"
+                    Padding="10" Margin="20,40,20,0"
+                    BackgroundColor="LightBlue"
+                    CornerRadius="10"
+                   
+                    VerticalOptions="Start"
+                                 >
+                <Grid RowDefinitions="auto, auto, auto"
+                      >
+                   
+                    <Label
+                            Grid.Row="1"
+                            Margin="0,-350,0,2"
+                            VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                               
+                                <Span
+                                        FontFamily="RobBold"
+                                        FontSize='24'
+                                        
+                                        Text="Улица: "
+                                        TextColor="Black" />
+                                <Span
+                                        FontFamily="RobBold"
+                                        FontSize='24'
+                                        x:Name="LabelStreet1"
+                                        Text=""
+                                        TextColor="Black" />
+                                <Span
+                                        FontFamily="FontMontserratSemiBold"
+                                        FontSize='14'
+                                        x:Name="LabelHouse1"
+                                        Text=" "
+                                        TextColor="White" />
+
+                            </FormattedString>
+                        </Label.FormattedText>
+                        
+                    </Label>
+                   
+                    <Image 
+                    Margin='0,10,-35,0'
+                                      
+                    HeightRequest='190'
+                                  
+                    HorizontalOptions="End"
+                    Source="https://burlida.by/wp-content/uploads/2019/04/favicon-1.png"
+                    WidthRequest='200' />
+                </Grid>
+            </pancake:PancakeView>-->
+            
+        </Grid>
+       
+
+</ScrollView>
+</ContentPage>
+<!--<ContentPage.BindingContext>
+        <vm:placemodel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <CarouselView ItemsSource="{Binding places}" HeightRequest="250">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        
+                        <Frame HeightRequest="245" WidthRequest="270" BackgroundColor="White" Padding="0"  HasShadow="True" CornerRadius="5"
+                   Margin="10" HorizontalOptions="CenterAndExpand">
+
+                            <Grid>
+                                <StackLayout BackgroundColor="Black" Grid.Row="0">
+                                    <Image Source="{Binding imgsrc}" Aspect="AspectFill"
+                       HeightRequest="247" Opacity="0.8"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="{Binding description}" FontFamily="20647.ttf" TextColor="White" FontSize="Medium" 
+                               FontAttributes="Bold" Margin="15" HorizontalTextAlignment="Center" 
+                               VerticalOptions="EndAndExpand"/>
+                                </StackLayout>
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+      
+        </StackLayout>
+    </ContentPage.Content>-->

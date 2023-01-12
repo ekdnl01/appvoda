@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="app_voda.AppPage.FlyoutPage1"
+             xmlns:pages="clr-namespace:app_voda.AppPage" xmlns:app_voda="clr-namespace:app_voda" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+  <FlyoutPage.Flyout>
+        <ContentPage Title="Меню">
+            <StackLayout Orientation="Vertical">
+
+                <ScrollView VerticalOptions="Start">
+                    <StackLayout Orientation="Vertical" BackgroundColor="AliceBlue" >
+                        <StackLayout Orientation="Vertical" BackgroundColor="#DEFAFF">
+                            <StackLayout Orientation="Horizontal" Margin="5,30,5,5" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand">
+                                    <Image Source="https://www.pinclipart.com/picdir/big/73-739007_icon-profile-picture-circle-png-clipart.png" 
+                                       BackgroundColor="Transparent" HeightRequest="100" WidthRequest="100" VerticalOptions="Center"/>
+
+                                    <StackLayout Orientation="Vertical">
+                                    <Label Text="" x:Name="LabelName" HorizontalTextAlignment="Start" FontSize="Large" FontFamily="Days"
+                                           Margin="5,0,0,0" HorizontalOptions="Start" VerticalOptions="EndAndExpand" TextColor="Black" FontAttributes="Bold"/>
+                                        <Label Text="" x:Name="LabelStreet" HorizontalTextAlignment="Start" FontSize="Medium" Margin="5,0,0,0" 
+                                           HorizontalOptions="Start" VerticalOptions="StartAndExpand" TextColor="Black" FontAttributes="Bold" FontFamily="Days"/>
+                                        <Label Text="" x:Name="LabelHouse" HorizontalTextAlignment="Start" FontSize="Medium" Margin="5,0,0,0" 
+                                           HorizontalOptions="Start" VerticalOptions="StartAndExpand" TextColor="Black" FontAttributes="Bold" FontFamily="Days"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout BackgroundColor="Black"  MinimumHeightRequest="5" Orientation="Vertical" HeightRequest="1" HorizontalOptions="FillAndExpand">
+                                    <Label Text="fff" FontSize="1" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <ListView x:Name="navigationList" Margin="5" SeparatorVisibility="Default"
+                              VerticalOptions="Start" ItemTapped="navigationList_ItemTapped">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+
+                                                <Image Source="{Binding Image}" 
+                                                   HorizontalOptions="Start" VerticalOptions="Center" Margin="10,0,10,2" HeightRequest="25" WidthRequest="25" />
+                                                <Label Text="{Binding OptionName}" FontAttributes="Bold" FontSize="15.5" Margin="10,0,5,2" HorizontalOptions="Start"
+                                                   VerticalOptions="Center" TextColor="Black" FontFamily="Days"/>
+
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </ContentPage>
+  </FlyoutPage.Flyout>
+
+</FlyoutPage>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="app_voda.ColdWater" Title="Холодная вода">
+    <ContentPage.Content >
+        <StackLayout BackgroundColor="LightBlue">
+            <pv:PancakeView Shadow="{pv:ShadowMarkup Color=Gray, Offset='2,0'}" HorizontalOptions="CenterAndExpand" 
+                            VerticalOptions="CenterAndExpand" >
+                <Frame>
+                    <StackLayout>
+                    <StackLayout>
+                        <Label HorizontalTextAlignment="Center" 
+                            Text="Показания холодной воды"
+                            FontFamily="Days" FontSize="20" Margin="30,10,30,45" TextColor="Black"/>    
+                    </StackLayout>
+                        <StackLayout>
+                            <Label Text="Лицевой счет" FontFamily="Days" TextColor="Black" />
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkBlue" Padding="0" Margin="0" 
+                                   CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry HorizontalOptions="FillAndExpand" TextColor="DarkBlue"
+                                           MaxLength="9" Keyboard="Numeric" x:Name="EntryLC"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout Margin="0,30">
+                            <Label Text="Номер счетчика (последние 4 цифры)" FontFamily="Days" TextColor="Black" />
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkBlue" Padding="0" Margin="0" 
+                                   CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry HorizontalOptions="FillAndExpand" MaxLength="4" TextColor="DarkBlue" 
+                                           Keyboard="Numeric" x:Name="EntrySchet"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout>
+                            <Label Text="Показание счетчика" FontFamily="Days" TextColor="Black" />
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkBlue" Padding="0" Margin="0,0,0,30" 
+                                   CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry HorizontalOptions="FillAndExpand" MaxLength="8" TextColor="DarkBlue" 
+                                           Keyboard="Numeric" x:Name="EntryPokazanie"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout>
+                            <Button Text="Отправить" CornerRadius="10" HorizontalOptions="CenterAndExpand" FontSize="18" 
+                                    FontFamily="Days" BackgroundColor="DarkBlue" TextColor="White" Clicked="Button_Clicked"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </pv:PancakeView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

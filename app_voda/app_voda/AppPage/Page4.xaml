@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="app_voda.AppPage.Page4">
+    <RefreshView RefreshColor="Blue" Refreshing="RefreshView_Refreshing" x:Name="RefreshView1">
+        <Grid BackgroundColor="#F9F9F9" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ScrollView Grid.Row ="0" Margin="0,10" VerticalScrollBarVisibility="Never">
+            <StackLayout BackgroundColor="Transparent" BindableLayout.ItemsSource="{Binding NewsList}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <pv:PancakeView HeightRequest="190" Margin="5,10" CornerRadius="5" Shadow="{pv:ShadowMarkup Color=Gray, Offset='10,10'}" BackgroundColor="White">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="NewsSelected"/>
+                                </Grid.GestureRecognizers>
+                                <Image HeightRequest="115" Aspect="AspectFill" Source="{Binding Image}" />
+                                <Grid VerticalOptions="End" Margin="15">
+                                </Grid>
+                                <StackLayout Grid.Row="1" Spacing="5" Margin="20,5">
+                                    <Label Text="{Binding LabelNews}" FontSize="15" FontFamily="ThemeFontBold" TextColor="black"/>
+                                    <StackLayout Orientation="Horizontal" Spacing="15">
+                                        <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Start">
+                                            <Image WidthRequest="16" Source="https://www.clipartmax.com/png/full/212-2123338_date-time-and-place-date-icon-png-transparent.png"
+                                                   HorizontalOptions="Center" VerticalOptions="Center"/>
+                                            <Label Text="{Binding Date}" FontSize="12" FontFamily="ThemeFontRegular" TextColor="Black"
+                                                   VerticalOptions="Center"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid> 
+                        </pv:PancakeView>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+            
+        </ScrollView>
+        
+    </Grid>
+    <!--<ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout>
+
+                    <Frame HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" HeightRequest="200" WidthRequest="330" BackgroundColor="LightSkyBlue"
+                            HasShadow="True" CornerRadius="7">
+                         
+                        <StackLayout Orientation="Vertical" Margin="0,0,0,0" Padding="0,0,0,0">
+                        <Label Text="86 лет «Приморскому водоканалу»" FontSize="17" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="20 мая 2021" Margin="0,0,0,0" Padding="0,0,0,0"/>
+                            <StackLayout Orientation="Horizontal" Margin="0,0,0,0" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand">
+                                <Image Source="img_5116"
+                               HeightRequest="150"
+                               WidthRequest="205" HorizontalOptions="StartAndExpand"/>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="Поздравляем с днем рождения предприятия всех, кто трудится или когда-либо трудился в КГУП «Приморский водоканал»!"
+                                           HorizontalTextAlignment="Start" FontSize="13" TextColor="Black"/>
+                                    <Button Text="Подробнее" FontSize="10" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
+                                            HeightRequest="35" WidthRequest="100" Clicked="Button_Clicked"/>
+
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout>
+                     <Frame HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" HeightRequest="200" WidthRequest="330" BackgroundColor="LightSkyBlue"
+                            HasShadow="True" CornerRadius="7">
+                        <StackLayout Orientation="Vertical" Margin="0,0,0,0" Padding="0,0,0,0">
+                            <Label Text="Летний водопровод" FontSize="17" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="18 мая 2021" Margin="0,0,0,0" Padding="0,0,0,0"/>
+                            <StackLayout Orientation="Horizontal" Margin="0,0,0,0" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand">
+                                <Image Source="letniy_vodoprovod_2021"
+                               HeightRequest="150"
+                               WidthRequest="205" HorizontalOptions="StartAndExpand"/>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="Существует демократичный и удобный вариант обслуживания: летнее подключение."
+                                           HorizontalTextAlignment="Start" FontSize="13" TextColor="Black"/>
+                                    <Button Text="Подробнее" FontSize="10" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
+                                            HeightRequest="35" WidthRequest="100" Clicked="Button_Clicked_1"/>
+
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout>
+                    <Frame HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" HeightRequest="220" WidthRequest="330" BackgroundColor="LightSkyBlue"
+                            HasShadow="True" CornerRadius="7">
+                        <StackLayout Orientation="Vertical" Margin="0,0,0,0" Padding="0,0,0,0">
+                            <Label Text="Более 300 сотрудников привито от COVID-19" FontSize="17" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="17 мая 2021" Margin="0,0,0,0" Padding="0,0,0,0"/>
+                            <StackLayout Orientation="Horizontal" Margin="0,0,0,0" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand">
+                                <Image Source="vakcinaciya"
+                               HeightRequest="150"
+                               WidthRequest="205" HorizontalOptions="StartAndExpand"/>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="Продолжается иммунизация работников «Примводоканала» в рамках прививочной кампании."
+                                           HorizontalTextAlignment="Start" FontSize="13" TextColor="Black"/>
+                                    <Button Text="Подробнее" FontSize="10" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
+                                            HeightRequest="35" WidthRequest="100" Clicked="Button_Clicked_2"/>
+
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout>
+                    <Frame HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" HeightRequest="220" WidthRequest="330" BackgroundColor="LightSkyBlue"
+                            HasShadow="True" CornerRadius="7">
+                        <StackLayout Orientation="Vertical" Margin="0,0,0,0" Padding="0,0,0,0">
+                            <Label Text="Проверка пожарных гидрантов" FontSize="17" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="28 апреля 2021" Margin="0,0,0,0" Padding="0,0,0,0"/>
+                            <StackLayout Orientation="Horizontal" Margin="0,0,0,0" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand">
+                                <Image Source="gidranty_0"
+                               HeightRequest="150"
+                               WidthRequest="205" HorizontalOptions="StartAndExpand"/>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="Специалисты «Примводоканала» обслуживают 1711 пожарных гидрантов во Владивостокском городском округе, включая с. Береговое."
+                                           HorizontalTextAlignment="Start" FontSize="13" TextColor="Black"/>
+                                    <Button Text="Подробнее" FontSize="10" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
+                                            HeightRequest="35" WidthRequest="100" Clicked="Button_Clicked_3"/>
+
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout>
+                    <Frame HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" HeightRequest="220" WidthRequest="330" BackgroundColor="LightSkyBlue"
+                            HasShadow="True" CornerRadius="7">
+                        <StackLayout Orientation="Vertical" Margin="0,0,0,0" Padding="0,0,0,0">
+                            <Label Text="Около 300 сотрудников «Приморского водоканала» вышли на городской субботник" FontSize="17" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="26 апреля 2021" Margin="0,0,0,0" Padding="0,0,0,0"/>
+                            <StackLayout Orientation="Horizontal" Margin="0,0,0,0" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand">
+                                <Image Source="dsc_0077"
+                               HeightRequest="150"
+                               WidthRequest="205" HorizontalOptions="StartAndExpand"/>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="Сотрудники предприятия приняли участие в субботнике на «Покровском парке»."
+                                           HorizontalTextAlignment="Start" FontSize="13" TextColor="Black"/>
+                                    <Button Text="Подробнее" FontSize="10" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
+                                            HeightRequest="35" WidthRequest="100" Clicked="Button_Clicked_4"/>
+
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout>
+
+                    <Frame HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" HeightRequest="220" WidthRequest="330" BackgroundColor="LightSkyBlue"
+                            HasShadow="True" CornerRadius="7">
+                        <StackLayout Orientation="Vertical" Margin="0,0,0,0" Padding="0,0,0,0">
+                            <Label Text="Устранение засора на коллекторе в районе ул. Снеговая, 13" FontSize="17" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="23 апреля 2021" Margin="0,0,0,0" Padding="0,0,0,0"/>
+                            <StackLayout Orientation="Horizontal" Margin="0,0,0,0" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand">
+                                <Image Source="img_9384"
+                               HeightRequest="150"
+                               WidthRequest="205" HorizontalOptions="StartAndExpand"/>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="Сложнейшие засоры на коллекторе в районе ул. Снеговая, 13 устраняет бригада Первореченского района."
+                                           HorizontalTextAlignment="Start" FontSize="13" TextColor="Black"/>
+                                    <Button Text="Подробнее" FontSize="10" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
+                                            HeightRequest="35" WidthRequest="100" Clicked="Button_Clicked_5"/>
+
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+
+                </StackLayout>
+                <StackLayout>
+                    <Frame HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" HeightRequest="220" WidthRequest="330" BackgroundColor="LightSkyBlue"
+                            HasShadow="True" CornerRadius="7">
+                        <StackLayout Orientation="Vertical" Margin="0,0,0,0" Padding="0,0,0,0">
+                            <Label Text="Начинается установка антимагнитных пломб на общедомовые приборы учёта многоквартирных домов" FontSize="17" FontAttributes="Bold" TextColor="Black"/>
+                            <Label Text="22 апреля 2021" Margin="0,0,0,0" Padding="0,0,0,0"/>
+                            <StackLayout Orientation="Horizontal" Margin="0,0,0,0" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand">
+                                <Image Source="antimagnitnaya_plomba"
+                               HeightRequest="150"
+                               WidthRequest="205" HorizontalOptions="StartAndExpand"/>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="Зафиксирован факт установки магнита на приборе учета в доме компании «Трудовое»."
+                                           HorizontalTextAlignment="Start" FontSize="13" TextColor="Black"/>
+                                    <Button Text="Подробнее" FontSize="10" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
+                                            HeightRequest="35" WidthRequest="100" Clicked="Button_Clicked_6"/>
+
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>-->
+    </RefreshView>
+</ContentPage>
